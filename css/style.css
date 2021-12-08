@@ -226,7 +226,12 @@ img {
   top: 0;
   background: rgba(0, 0, 0, 0.2);
   opacity: 1;
+}
+
+.backdrop.is-hidden {
+  opacity: 0;
   pointer-events: none;
+  visibility: hidden;
 }
 .modal {
   position: absolute;
@@ -338,6 +343,7 @@ img {
   height: 70px;
 
   font-weight: bold;
+  font-style: normal;
   font-size: 14px;
   line-height: 1.14;
   text-align: center;
