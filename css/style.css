@@ -10,13 +10,15 @@
   --footer-background-color: rgba(47, 48, 58, 1);
   --contact-color: rgba(255, 255, 255, 0.6);
   --social-link-color: #afb1b8;
+
+  --cubic-bezier: cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 body {
   font-family: Roboto, sans-serif;
   letter-spacing: 0.03em;
 
-  background-color: var(--primary-backgroud-color);
+  /* background-color: var(--primary-backgroud-color); */
   color: var(--primary-text-color);
 }
 ul {
@@ -98,6 +100,8 @@ img {
   text-decoration: none;
 
   color: var(--primary-text-color);
+
+  transition: color 250ms var(--cubic-bezier);
 }
 .nav-link:hover,
 .nav-link:focus {
@@ -142,6 +146,8 @@ img {
   text-decoration: none;
 
   color: var(--secondary-text-color);
+
+  transition: fill 250ms var(--cubic-bezier), color 250ms var(--cubic-bezier);
 }
 .icon.mail {
   width: 16px;
@@ -226,6 +232,8 @@ img {
   top: 0;
   background: rgba(0, 0, 0, 0.2);
   opacity: 1;
+
+  transition: opacity 250ms var(--cubic-bezier);
 }
 
 .backdrop.is-hidden {
@@ -233,6 +241,12 @@ img {
   pointer-events: none;
   visibility: hidden;
 }
+
+.backdrop.is-hidden .modal {
+  transform: translate(-50%, -50%);
+  opacity: 0;
+}
+
 .modal {
   position: absolute;
   width: 528px;
@@ -240,12 +254,16 @@ img {
 
   top: 50%;
   left: 50%;
-  transform: translate(-50%, -50%);
 
   background-color: var(--white-color);
   box-shadow: 0px 1px 3px rgba(0, 0, 0, 0.12), 0px 1px 1px rgba(0, 0, 0, 0.14),
     0px 2px 1px rgba(0, 0, 0, 0.2);
   border-radius: 4px;
+
+  transform: translate(-50%, -50%);
+  opacity: 1;
+  transition: opacity 250ms var(--cubic-bezier),
+    transform 250ms var(--cubic-bezier);
 }
 
 .close-modal-button {
@@ -420,6 +438,9 @@ img {
 
   border-radius: 50%;
   fill: var(--social-link-color);
+
+  transition: fill 250ms var(--cubic-bezier),
+    background-color 250ms var(--cubic-bezier);
 }
 
 .social-icon {
@@ -459,6 +480,8 @@ img {
   border-radius: 4px;
 
   fill: var(--social-link-color);
+
+  transition: fill 250ms var(--cubic-bezier), border 250ms var(--cubic-bezier);
 }
 
 .client-link:hover,
@@ -472,11 +495,6 @@ img {
   width: 106px;
   height: 60px;
 }
-
-/* .client-icon:hover,
-.client-icon:focus {
-  fill: var(--accent-color);
-} */
 
 /* footer */
 .section-footer {
@@ -591,6 +609,10 @@ img {
 
   color: var(--primary-text-color);
   background-color: var(--secondary-background-color);
+
+  transition: color 250ms var(--cubic-bezier),
+    background-color 250ms var(--cubic-bezier),
+    box-shadow 250ms var(--cubic-bezier);
 }
 .button:hover,
 .button:focus {
@@ -616,6 +638,8 @@ img {
   margin-right: 30px;
 
   width: 370px;
+
+  transition: box-shadow 250ms var(--cubic-bezier);
 }
 .project-item:nth-child(3n) {
   margin-right: 0;
@@ -643,7 +667,7 @@ img {
 
 .overlay {
   content: "";
-  display: inline-block;
+  display: block;
   position: absolute;
   left: 0;
   top: 0;
@@ -652,7 +676,9 @@ img {
 
   background-color: rgba(33, 150, 243, 0.9);
 
-  transform: translatex(-100%);
+  transform: translatey(101%);
+
+  transition: transform 250ms var(--cubic-bezier);
 }
 .overlay > p {
   position: absolute;
@@ -671,7 +697,7 @@ img {
 }
 
 .project-item:hover .overlay {
-  transform: translatex(0);
+  transform: translatey(0);
 }
 
 .project-information {
